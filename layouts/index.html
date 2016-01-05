@@ -1,0 +1,39 @@
+{{ partial "header.html" . }}
+
+<h3>Course Information</h3>
+<ul>
+  {{ range first 10 .Data.Pages }}
+    {{ if eq .Type "info" }}
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  {{ end }}
+</ul>
+
+<h3>Announcements</h3>
+<ul>
+  {{ range first 10 .Data.Pages }}
+    {{ if eq .Type "post"}}
+    <li>{{ .Date.Format "Mon, Jan 2" }}: <a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  {{ end }}
+</ul>
+
+<h3>Workshops</h3>
+<ul>
+  {{ range first 10 .Data.Pages }}
+    {{ if eq .Type "workshop"}}
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  {{ end }}
+</ul>
+
+<h3>Assignments</h3>
+<ul>
+  {{ range first 10 .Data.Pages }}
+    {{ if eq .Type "assignment"}}
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  {{ end }}
+</ul>
+
+{{ partial "footer.html" . }}

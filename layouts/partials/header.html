@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ .Title }}</title>
+  <!-- Include Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <!-- Include our own stylesheet -->
+  <link rel="stylesheet" href="/css/course.css" media="screen" charset="utf-8">
+</head>
+<body>
+
+<div id="course-title">{{ .Title }}</div>
+<div id="course-info">
+  <a href="{{ .Site.Params.school_url }}">{{ .Site.Params.school }}</a> /
+  <a href="{{ .Site.Params.department_url }}">{{ .Site.Params.department }}</a> /
+  {{ .Site.Params.semester }}
+</div>
+
+<div class="content">

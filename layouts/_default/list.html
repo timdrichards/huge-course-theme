@@ -1,0 +1,11 @@
+{{ partial "header.html" . }}
+
+<h3>Pages</h3>
+<ul>
+{{ range .Data.Pages }}
+  <li><a href="{{ .Permalink }}">{{ .Title }}</a> -- <em>{{ dateFormat "Mon, Jan 2, 2006" .Date }}</em></li>
+{{ end }}
+</ul>
+<p><a href="{{ .Site.BaseURL }}">Home</a></p>
+
+{{ partial "footer.html" . }}
