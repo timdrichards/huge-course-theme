@@ -1,39 +1,55 @@
 {{ partial "header.html" . }}
 
-<h3>Course Information</h3>
+<h3>Course Staff</h3>
 <ul>
-  {{ range first 10 .Data.Pages }}
-    {{ if eq .Type "info" }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-    {{ end }}
+  {{ range .Site.Params.staff }}
+  <li>{{ .role }}: {{ .name }} <br>
+    email: {{ .email }} <br>
+    hours: {{ .hours }} <br>
+    location: {{ .location }}
+  </li>
   {{ end }}
 </ul>
+
+<h3>Course Information</h3>
+{{ $info_pages := where .Data.Pages "Type" "info" }}
+{{ if not (len $info_pages) }}
+<i>No course information available yet.</i>
+{{ else }}
+<ul>
+  {{ range $info_pages }}
+  <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{ end }}
+</ul>
+{{ end }}
 
 <h3>Announcements</h3>
+{{ $announcement_pages := where .Data.Pages "Type" "announcement" }}
+{{ if not (len $announcement_pages) }}
+<i>No Announcements at the moment.</i>
+{{ else }}
 <ul>
-  {{ range first 10 .Data.Pages }}
-    {{ if eq .Type "post"}}
-    <li>{{ .Date.Format "Mon, Jan 2" }}: <a href="{{ .Permalink }}">{{ .Title }}</a></li>
-    {{ end }}
+  {{ range $announcement_pages }}
+  <li>{{ .Date.Format "Mon, Jan 2" }}: <a href="{{ .Permalink }}">{{ .Title }}</a></li>
   {{ end }}
 </ul>
-
-<h3>Workshops</h3>
-<ul>
-  {{ range first 10 .Data.Pages }}
-    {{ if eq .Type "workshop"}}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-    {{ end }}
-  {{ end }}
-</ul>
+{{ end }}
 
 <h3>Assignments</h3>
+<div class="assignments">
+{{ $assignment_pages := where .Data.Pages "Type" "assignment" }}
+{{ if not (len $assignment_pages) }}
+<i>No Assignments at the moment.</i>
+{{ else }}
 <ul>
-  {{ range first 10 .Data.Pages }}
-    {{ if eq .Type "assignment"}}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-    {{ end }}
+  {{ range $assignment_pages }}
+  <li><a href="{{ .Permalink }}">{{ .Title }}</a> <br>
+    <span class="assigned">Assigned: {{ .Params.assigned }}</span><br>
+    <span class="due">Due: {{ .Params.due }}</span>
+  </li>
   {{ end }}
 </ul>
+</div>
+{{ end }}
 
 {{ partial "footer.html" . }}

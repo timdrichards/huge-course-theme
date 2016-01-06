@@ -4,7 +4,25 @@ body {
   margin-right: auto;
   margin-top: 50px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 11px;
+}
+
+div#course-title {
+  font-size: 24px;
+  font-weight: bold;
+  /*margin-left: 20px;*/
+}
+
+div#course-info {
+  font-size: 11px;
+  /*margin-left: 22px;*/
+}
+
+div#course-description {
+  /*margin-left: 22px;*/
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: justify;
 }
 
 div.content {
@@ -13,7 +31,11 @@ div.content {
   border-right: 1px solid lightgray;
   padding: 10px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
+}
+
+div.content > div.assignments li {
+  margin-top: 10px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -22,20 +44,22 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
-/* Use this to designate important things like due dates. */
+/*
+ The following should be used for important dates.
+*/
 .important {
   color: red;
 }
 
-div#course-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-left: 20px;
+/* This is used for assignment assigned dates. */
+.assigned {
+  color: green;
 }
 
-div#course-info {
-  font-size: 11px;
-  margin-left: 22px;
+/* This is used for assigned due dates. */
+.due {
+  color: red;
+  font-weight: bold;
 }
 
 a:visited, a:active, a:link, a:hover {
