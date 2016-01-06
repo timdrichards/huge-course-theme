@@ -35,6 +35,18 @@
 </ul>
 {{ end }}
 
+<h3>Weeks</h3>
+{{ $week_pages := where .Data.Pages "Type" "week" }}
+{{ if not (len $week_pages) }}
+<i>The course has not started yet.</i>
+{{ else }}
+<ul>
+  {{ range $week_pages }}
+  <li>{{ .Date.Format "Mon, Jan 2" }}: <a href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{ end }}
+</ul>
+{{ end }}
+
 <h3>Assignments</h3>
 <div class="assignments">
 {{ $assignment_pages := where .Data.Pages "Type" "assignment" }}
