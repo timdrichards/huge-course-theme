@@ -10,7 +10,12 @@ body {
 div#course-title {
   font-size: 24px;
   font-weight: bold;
-  /*margin-left: 20px;*/
+}
+
+div#page-title {
+  font-size: 18px;
+  margin-top: 15px;
+  font-style: italic;
 }
 
 div#course-info {
@@ -26,7 +31,7 @@ div#course-description {
 }
 
 div.content {
-  margin-top: 20px;
+  margin-top: 10px;
   border-left: 1px solid lightgray;
   border-right: 1px solid lightgray;
   padding: 10px;
