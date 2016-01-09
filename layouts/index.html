@@ -1,5 +1,10 @@
 {{ partial "home_header.html" . }}
 
+<h3>Time and Location</h3>
+<p>
+  {{ .Site.Params.time }}, {{ .Site.Params.location }}
+</p>
+
 <h3>Course Staff</h3>
 <ul>
   {{ range .Site.Params.staff }}
