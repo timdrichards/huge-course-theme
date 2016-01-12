@@ -2,7 +2,18 @@
 
 <h3>Time and Location</h3>
 <p>
-  {{ .Site.Params.time }}, {{ .Site.Params.location }}
+  {{ if or (and (isset .Site.Params "time") (isset .Site.Params "location")) (and (isset .Site.Params "dtime") (isset .Site.Params "dlocation")) }}
+    {{ if and (isset .Site.Params "time") (isset .Site.Params "location") }}
+      Lecture:
+      {{ .Site.Params.time }}, {{ .Site.Params.location }}
+    {{ end }}
+    {{ if and (isset .Site.Params "dtime") (isset .Site.Params "dlocation") }}
+      <br>Discussion:
+      {{ .Site.Params.dtime }}, {{ .Site.Params.dlocation }}
+    {{ end }}
+  {{ else }}
+    <i>Time and location not determined yet.</i>
+  {{ end }}
 </p>
 
 <h3>Course Staff</h3>
